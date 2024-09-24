@@ -13,6 +13,11 @@ public class AES_Implementation {
         return keyGenerator.generateKey();
     }
 
+    public static SecretKey getKeyFromString(String key) {
+        byte[] keyBytes = key.getBytes(); // Convert string to byte array
+        return new SecretKeySpec(keyBytes, "AES"); // Create SecretKeySpec from byte array
+    }
+
    
     public static String encrypt(String plainText, SecretKey secretKey) throws Exception {
         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
